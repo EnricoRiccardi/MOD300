@@ -1,0 +1,30 @@
+Week 1
+a Intro, me, hard solf model
+b prob distribution - data metadata
+
+week 2
+a python .py and notebooks .ipynb; MC aksel material
+b MC
+
+week 3 
+a GIVE ASSIGMEMET (20 Oct)
+b 
+
+week 4
+a Intro to ML
+b Linear Regression
+
+week 5
+a 
+b 
+
+week 6
+a NN 
+b genAI
+
+week 7?
+
+
+week 8:
+ASSIGNEMENT (17th Nov)
+
