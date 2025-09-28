@@ -7,7 +7,7 @@
 set -e 
 
 dofile=$1
-class=MOD550
+class=MOD300
 if [ ! -f class-$dofile-$class.do.txt ]; then
   echo "No such file: class-$dofile-$class"
   exit 1
