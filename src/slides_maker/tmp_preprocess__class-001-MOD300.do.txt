@@ -1,0 +1,950 @@
+TITLE: MOD300 Anvendt Python programmering og modellering
+AUTHOR: Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Mathematics and Physics, University of Stavanger (UiS).
+DATE: today
+
+FIGURE: [../../../Teaching/Figures/logo, width=100 frac=0.2]
+
+!split
+======= Python =======
+
+!split
+===== Popularity =====
+FIGURE: [../../../Teaching/fun/Introductory_python_programming, width=100]
+
+
+!split
+===== Popularity =====
+FIGURE: [../../../Teaching/Figures/most, width=100]
+
+
+!split
+===== What makes python sexy? =====
+* Community
+* Training material for LLMs
+* Environments
+* Integration with other software
+* Speed
+* Readability
+* Re-usability
+* M-L libraries
+* Community standards
+
+!split
+===== Coding standards =====
+FIGURE: [../../../Teaching/Figures/standards, width=100]
+
+!split
+===== Developing approaches =====
+Different code editors are available to interpret python language.
+
+!bpop
+
+* jupyter notebooks are mostly dedicated to learning (Markdown)
+
+* ipython is for interactive coding (similar to R, Matlab, etc)
+
+* python packages (.py) developing suites (debug possibilities and git integration)
+
+!epop
+
+!split
+===== Introducing code standards =====
+When developing code, there are _guidelines_ and best practices aimed at improving the
+color{red}{quality, readability, and maintainability} of a code.
+
+!bpop
+There are different levels of coding quality, mostly depending on the code intended usage (and developer skills).
+
+* Private codes can be whatever (Cpt. Obvious)
+
+* Public packages shall use a 'Golden code standards' such to be used and eventually supported by communities.
+
+!epop
+
+
+!split
+===== Golden code standard =====
+
+Principle of 'clean coding':     
+
+!bpop
+o Readability and Clarity: A good code shall be possible to read as when reading a book
+o Structure and object oriented: A code shall be composed by objects, each of them connected in the less redundant way possible.
+o Consistency and Style: Variable naming, function naming and classes naming has to be consistent.
+o Documentation: Each file, each function and each class shall contain the relative description of its aim and its usage
+o Maintainability: Code dependencies have to be stated and consistently defined and updated, such that a suitable environment can be developed at any point in time.
+!epop
+
+!split
+===== Golden code standard =====
+
+!bpop
+o Testing: Unit testing shall cover the majority of the code
+o Error Handling: Each error shall be captured and properly identified.
+o Examples and benchmarks: Users shall be able to execute minimal examples of the code for computational checks.
+o Performance Optimization: Libraries shall be able to use the available computational power in the machine (e.g. GPU-CUDA)
+!epop
+
+!split
+======= Version control =======
+!split
+===== Version control =====
+FIGURE: [../../../Teaching/fun/version, frac=0.55]
+
+!split
+===== Git =====
+Git is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers). [Wiki]
+
+\pause
+!bblock Let's try to be more accessible. 
+Git is a computer program/tool to save and download files on a hosting server (e.g. GitHub and GitLab).
+!eblock
+
+
+!split
+===== Centralized workflow =====
+FIGURE: [../../../Teaching/Figures/git, width=100 frac=0.8]
+
+!split
+===== A distributed version control system =====
+GIT
+!bpop
+* Git facilitates users to track the various versions of files. It is not a necessary tool, but it can be very very helpful. Generally, the time spent to learn its syntax is well paid off 
+(do you remember to save some file like $manuscript\_draft\_v4.02\_final\_definitive\_forreal\_lastcomments\_editedbyER\_submittedVersion\_revised\_wrongversiontokeep.doc$? Exactly! Imagine to do that for a repository of files...)   
+* It permits to save and share the intermediate stages of a work in progress (which software is complete and always up to date?) in an accessible, consistent and structured way, allowing an effective version tracking. It allows retrieval of previous working versions, limiting the risk to overwrite useful files.
+!epop
+
+!split
+===== What is git actually for =====
+
+!bblock
+The tool is particularly useful for programmers working in teams or in projects whose outcomes can be used by others.
+!eblock
+
+!bpop
+* Git helps to co-develop a code, test its functions and the compatibility of the various code sections. 
+* A long list of further possibilities became possible by git.
+* Different software integration on development platforms, based on git, will help you to develop and co-develop your code. 
+* The platform GitLab and GitHub have a large set of functionalities to further support code documentation and public releases. 
+* Files can be disclosed to the public, becoming a great integration of your CV, showing what you are able to do in an open and accessible way. 
+!epop
+
+
+
+!split
+===== How does it work -in short- =====
+FIGURE: [../../../Teaching/Figures/git2, width=100 frac=0.8]
+
+
+
+
+!split
+===== Why should I care? =====
+As the open libraries are exploding in numbers, you might need some criteria to assert the reliability of a project.
+
+Unit test driven development! 
+
+That is taking full advantage of python object oriented structure.
+
+\pause 
+
+!bblock  Community
+Good project are not only used by communities, but also _supported_
+!eblock
+
+Git allows the development of projects without a clear lead.
+Community engagement is generally a desirable target to help develop to directly integrate feedbacks by users (and fix bugs).
+
+!split
+===== It can help your CV! maybe...  =====
+FIGURE: [../../../Teaching/fun/gitfun, width=100 frac=0.8]
+
+!split
+======= Data properties =======
+
+
+!split
+===== Data =====
+FIGURE: [../../../Teaching/Figures/data, frac=0.4]
+
+
+
+!split
+===== Representation =====
+A representation should _capture_ the nature of the subject being studied.
+
+\pause 
+
+Example:
+If you want to evaluate the 3D structure of a wind turbine, a set of descriptors an be:
+\pause 
+
+o Blade length
+o Turbine height
+o Geographical position
+o Output power
+o Wind direction
+
+which are two decimal numbers, a 2d tuple, a 1D time series and a 2D time series (or 3D even).
+
+
+!split
+===== Comparability =====
+Same meaning _represenations_ for different objects (inputs).
+
+
+\vspace{3em}
+!bpop
+!bblock Discussion point!
+How do we compare two wind turbines accounting for the 5 variables
+previously introduced?
+!eblock
+!epop
+
+!split
+===== Data properties =====
+
+* All starts from data: what are data-properties?
+
+* Are there such things as good data and bad data?
+
+!bblock Life lesson (or exam question, same thing ;) )
+* Data color{red}{ DO NOT always} have value.
+!eblock
+
+\vspace{1em}
+
+* TRASH in TRASH out
+
+
+
+!split
+===== Sampling point representation (SPR) =====
+
+!bpop
+* An intuitive way to represent curves and spectra is the _sampling point representation_.
+
+* We sample at regular intervals where each sample point is represented by a variable
+
+FIGURE: [../../../Teaching/Figures/SPR_example, width=90 frac=0.8]
+!epop
+
+
+!split
+===== Sampling point representation (SPR) =====
+!bpop
+* SPR is useful until point *i* in a curve has the same meaning of the point *i* in another curve.
+
+FIGURE: [../../../Teaching/Figures/SPR-shift-problem, frac=0.5]
+
+* Which parts of the profiles or shapes are comparable, i.e. have the same meaning?
+!epop
+
+!split
+===== Data structures =====
+Given a representation, it is then needed to decide on a suitable _data structure_ for the problem.
+
+!bblock Definition
+A data structure is a way of storing
+ and organising data in a computer so that it can be used effectively.
+!eblock
+
+\pause
+
+Typical data structures used in data analysis are:
+
+  * Data points
+
+  * Arrays (vectors, matrices, N-mode (way) arrays)
+
+  * Graphs (trees)
+
+  * Databases
+
+
+
+!split
+===== Workflow =====
+Data has to be prepared with these steps in mind
+
+!bpop
+o Plan experiments: Use experimental design to set up experiments
+  in a *systematic* way
+
+o Pre-processing: Is there systematic variation in the data which should be removed  Can cross-checking/validation procedures be designed?
+
+o Examine the data: Look at data (tables and plots). Strange behaviours? Smooth behaviour? WARNING!
+
+o Define desired model outcomes (speed, accuracy, false positive/negatives rate)
+
+o Estimate and validate model: What do the results tell us?  Is
+  the generated model general (valid for future sampling)?
+
+o Apply model to unknown samples
+!epop
+
+
+
+!split
+===== Spatial and Temporal Data =====
+
+ Statistics is collecting, organising, and interpreting data
+
+\pause 
+
+Spatial and temporal statistics is a branch of applied statistics that
+emphasises:
+o the geo context of the data
+o the spatial and time dependent relationship between data
+o the different relative value and precision of the data.
+
+
+!split
+===== Actual data =====
+
+The data matrix is an extremely common data structure.
+
+!bt
+\begin{displaymath}
+{\bf X}=  \left[ \begin{matrix}
+95 & 89 & 82 \cr
+23 & 76 & 44 \cr
+61 & 46 & 62 \cr
+49 & 2 & 79 \cr
+\end{matrix}\right]
+\end{displaymath}
+!et
+
+\pause 
+
+In python these can be saved as
+* lists (vanilla python)
+* numpy.arrays
+* pandas dataframes
+
+!split
+===== Nomenclature Reminder =====
+
+There are different conventions.
+Commonly we will construct data matrix such that:
+
+* Rows are called instances, objects or samples.
+* Columns are called features, variables.
+
+One can think of each row to be an experiment, and the rows its properties.
+Each row (experiment, object, sample, ...) is thus a list of values, one for property.
+
+!bblock Note
+Mathematically speaking, this is just a notation. As long as one keeps track and is consistent, columns can be used as rows and vice versa.
+!eblock
+
+
+!split
+===== A quick example =====
+Environmental measurements of rivers. The features (properties) can be:
+* pH
+* Temperature
+* Concentration of pollutants
+* Flow rate
+* water speed
+\pause
+The experiments/observations/sample can be:
+* Po
+* Danube
+* Rio delle Amazzoni
+* Sjoa
+* Atna
+!split
+======= Statistics (recaps) =======
+
+!bblock Definition
+Statistics is the science of acquiring and utilizing data
+!eblock
+
+!bpop
+* It comprises tools for data collection, summarization, and interpretation.
+
+* The aim is identifying the underlying structure, trends, and relationships inherent in the data.
+
+* Is it all statistics then? Yes.
+
+* _Numbers to data, data to information_
+!epop
+
+
+
+!split
+===== Data properties =====
+Before we talk about machine learning, we need to refresh some terminology.
+
+!bpop
+!bblock Population
+The universe of all possible outcomes and events.
+!eblock
+
+!bblock Sample
+A finite subset extracted from the population.
+!eblock
+
+!bblock Exhaustivity
+The samples covered the population spectra.
+!eblock
+
+!bblock Representativity
+The population is properly described by the samples.
+!eblock
+!epop
+
+
+!split
+===== Big data =====
+We speak of big data when dataset are very large: i.e. many instances and features
+Models have thus a large set of parameters (and often no one has a clue anymore of what is going on).
+
+!bpop
+* Volume of data
+* Variety different types of data sources with different length and scale.
+* Frequency of data generation
+!epop
+
+
+!split
+===== Sampling =====
+
+Samples shall have no bias (to be randomly selected). If not, the bias has to be corrected for.
+!bpop
+!bblock Cycle of data
+o Data is collected
+o Checked upon
+o Some modelling
+o Analysis and visualization
+!eblock
+!epop
+
+FIGURE: [../../../Teaching/Figures/circle, width=600 frac=0.33]
+
+ 
+
+
+!split
+===== Data quality =====
+
+o Data has to be acquired and integrated
+o Data are passed to a quality analysis and control
+o Data cleaning, consistency check. Most of time goes here
+
+ 
+FIGURE: [../../../Teaching/Figures/decide, width=600 frac=0.3]
+
+
+!split
+===== Preliminary Modeling =====
+
+!bblock Main tasks:
+o Hunt for redundancy
+o Reduce dimensionality
+o AnOmAlIes removal
+!eblock
+
+* Descriptive modeling (unsupervised learning)
+
+* Predictive modeling (supervised learning)
+
+* The model can be used to guide data acquisition (risky!)
+ 
+ 
+
+!split
+===== Visualization and reporting =====
+* The data has to be condensed into a visualization to provide input for decisions.
+* Depending on the goal, very very different visualizations are possible.
+* Use a model to indicate what is undersampled or oversampled.
+
+
+
+!bblock Summarizing and visualizing data as a starting point for more analysis later on.
+
+* Computing summary statistics (e.g. means and variance)
+* Determining conditional probabilities of cause+effect relationships
+* Calculating correlation and rank correlation coefficient between two variables
+* Visualizing univariate, bivariate and multivariate data
+* ...
+
+!eblock
+
+
+!split
+===== Exploratory data analysis =====
+
+!bblock Summarizing and visualizing data as a starting point for more analysis later on.
+* ...
+* Estimating probability coverage levels for different distributions
+* Analyzing behaviour of normal distributions
+* Calculating confidence interval and sampling distribution for the mean
+* Testing for significance of difference in means
+* Comparing two different distributions for statistical equivalence
+* Developing a nonparametric regression model from given data
+* Reducing data dimensionality  
+* Grouping data   
+
+!eblock
+
+
+!split
+===== Random Variables =====
+* A random variable is a real valued function that assigns a value to each outcome in the sample space
+* A random variable (RV) can be either discrete or continuous
+  * Discrete RV
+  * Continuous RV
+
+\pause
+
+* The probability mass function (PMF),P, of a discrete RV, X, denotes the probability that the RV is equal to a specified value, a.
+p(a) = p(X = a)
+
+\pause
+
+* The cumulative distribution function (CDF), F, denotes the sum
+!bt
+$ F(a) = P(X\leq a) = \sum_{0}^{a} f(x) dx $
+!et
+
+
+!split
+===== Random Variables =====
+FIGURE: [../../../Teaching/Figures/cdf, width=600 frac=1.1]
+ 
+!split
+===== Sampling =====
+* What are the effective sampling strategies? (Wind turbine example)
+
+* Solar Panels to determine the efficiency of the source (Usage patterns, energy production forecast)
+
+* Drilling (penetration rate)
+
+* Corrosion extension
+
+* Concrete Rigidity
+
+* Experimental design!
+
+ 
+
+!split
+===== Wind turbine example =====
+
+FIGURE: [../../../Teaching/Figures/wind, width=600 frac=1.1]
+
+ 
+!split
+===== Frequency plots and Histograms =====
+Given a set of data
+
+o Look for min and max values
+o Divide the range of values into a number of sensible class intervals (bins)
+o Count
+o Make a frequency table (or percentage)
+o Plot (see jupyter notebook)
+
+\pause
+
+!bblock Does this histogram represent uncertainty?
+No. It shows variability, but it can be used to quantify uncertainty.
+!eblock
+
+ 
+!split
+===== Class widths =====
+* Class widths (bin sizes) are usually CONSTANT
+  * the height of each bar is proportional to the number of values in it
+* If class width are VARIABLE
+  * the AREA of each bar is proportional to the number of values in it
+* For small samples, the shape of the histogram can be very sensitive to the number and definition of the class intervals
+
+\pause
+
+!bblock Exercise
+Plot a histogram from different random number distributions and bin sizes.
+!eblock
+
+
+!split
+===== Cumulative Histogram =====
+
+* Cumulative frequency
+
+* Each data point can be plotted individually
+
+* It helps to read quantiles and compare distributions
+
+* Practice with your jupyter notebook
+
+ 
+!split
+===== Measure of Location: Central Tendency, MEAN =====
+ 
+!bt
+\centering $m_x = \  <x> \  = \ \bar x \ = \frac{1}{n} \sum^n_{i=1} x_i$
+!et
+
+\pause
+
+Each point weighted equally by $\frac{1}{n}$ (assumption)
+
+\pause
+
+* Every element is the data set contributes to the values of the mean
+* An average provides a common measure for comparing one set of data to another
+* The mean is influenced by the extreme values in the data set
+* The mean may not be an actual element if the dataset
+* The sum of all deviation from the mean is zero, and the sum of squared deviation is minimized when those deviations are measured from the mean
+
+
+
+ 
+!split
+===== Means =====
+* Arithmetic
+  * Mean of raw data
+ 
+!bt
+\centering $\frac{1}{n} \sum^n_{i=1} x_i$
+!et
+
+\pause
+
+* Geometric
+  * $n^{th}$ root of product
+!bt
+\centering $ \left( \prod^n_{i=1} x_i \right)^{\frac{1}{n}} $
+!et
+* Geometric
+	* Mean of logarithms
+!bt
+\centering $ exp \left( \frac{1}{n} \sum^n_{i=1} ln(x_i) \right) $
+!et
+
+\pause
+
+* Harmonic
+  * Mean of inverses
+!bt
+\vspace{-4em}
+\begin{center}
+$ \left( \frac{1}{n} \sum^n_{i=1} \frac{1}{x_i} \right)^{-1}$
+\end{center}
+!et
+
+
+!split
+===== Median =====
+@@@CODE ../code/median.py
+
+* On a cumulative density plot, the value of the x-axis that corresponds to 50 \% of the y-axis
+* Not influenced by extreme values
+* May not be contained in the dataset (if n is even)
+* For a perfectly symmetrical dataset, means = median
+
+
+
+!split
+===== Mode =====
+* The mode is the most frequently occurring data element or the most likely or most probable value (for a pmf)
+* A data set may have more than one mode and it thus called multimodal
+* A mode is always a data element in the set
+* For a perfectly symmetrical dataset, means = median = mode
+
+
+
+!split
+===== Distribution Descriptors =====
+FIGURE: [../../../Teaching/Figures/mode, width=600 frac=1.0]
+
+
+
+!split
+===== Quantiles =====
+!bblock Quartiles
+The data split into quarters.
+!eblock
+
+\pause
+!bblock Deciles
+The data are split into tenths. The fifth decile is also the median.
+!eblock
+
+\pause
+!bblock Percentiles
+The data are split into hundredths.  P10, P25, P50, P75 and P90 are the most commonly used.
+!eblock
+
+\pause
+!bblock Quantiles
+A generalization of splitting data into any fraction
+!eblock
+ 
+
+!split
+===== Distribution Descriptors =====
+FIGURE: [../../../Teaching/Figures/quant, width=600 frac=1.0]
+
+
+!split
+===== Dispersion (Spread) =====
+!bblock Range
+!bt
+\centering  R = maximum - minimum
+!et
+!eblock
+
+
+!bblock Inter-quantile Range
+!bt
+\centering  IQR = Q3 - Q1
+!et
+!eblock
+
+
+!bblock Mean Deviation from the Mean
+!bt
+\centering  MD = $\sum^n_{i=1} (x_i - \bar x)/n$
+!et
+!eblock
+
+!bblock Mean Absolute Deviation
+!bt
+\centering  MAD = $\sum^n_{i=1} |x_i - \bar x|/n$
+!et
+!eblock
+
+
+!split
+===== Variance =====
+
+The variance is the average of squared differences between the sample data points and their mean
+
+!bblock Variance
+!bt
+\centering  $s_x^2 = \frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^2$
+!et
+!eblock
+
+
+!bblock Standard Deviation (SD)
+!bt
+\centering  $s_x = \sqrt{\frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^2}$
+!et
+!eblock
+
+
+!split
+===== Standard Deviation =====
+FIGURE: [../../../Teaching/Figures/sd, width=600 frac=1.0]
+
+!split
+===== Standard Deviation =====
+FIGURE: [../../../Teaching/Figures/sd2, width=600 frac=1.0]
+
+
+
+!split
+===== Measures of dispersion =====
+!bblock Standard Deviation (SD)
+!bt
+\centering  $  SE_x = \frac{s_x}{\sqrt{n}}$
+!et
+!eblock
+
+!bblock Coefficient of Variability
+!bt
+\centering  $CV = \frac{s_x}{\bar x}$
+!et
+!eblock
+
+
+!split
+===== Modality =====
+* Unimodal
+* Bimodal
+* Polymodal
+
+FIGURE: [../../../Teaching/Figures/multimode, width=600 frac=0.7]
+
+!split
+===== Skewness =====
+It measures the symmetry in a distribution
+
+!bt
+\centering  $Sk = \frac{\frac{1}{n} \sum^n_{i=1} (x_i - \bar x)^3}{s^3}$
+!et
+
+FIGURE: [../../../Teaching/Figures/skness, width=600 frac=1.0]
+
+
+A bit out of fashion with ML
+
+
+!split
+======= Distributions =======
+
+!split
+===== Distribution Models =====
+!bblock Distribution
+means of expressing uncertainty or variability
+!eblock
+
+Models
+* Uniform: useful when only upper and lower bounds are known
+* Triangular: useful when estimates of min, max, mode [P10, P50, P90] are available
+* Normal: symmetric model of random errors or unbiased uncertainties with mean of standard deviation specified
+  * very common for observed data
+  * additive processes tend to be normal as a result of the Central Limit Theorem
+* log normal comes from multiplicative uncertainties with mean and standard deviation specified
+
+
+
+!split
+===== Uniform Distribution =====
+* The uniform distribution is useful as a rough model for representing low states of knowledge when only the upper and lower bounds are known.
+* All possible values within the specified maximum and minimum values are equally likely (b=max, a=min):
+* It can express maximum uncertainty
+
+!bblock PDF: $f(x) =$
+!bt
+$/frac{1}{b-a}, a \leq x \leq b $
+!et
+!eblock
+
+
+!bblock CDF: $ F(x) = $
+!bt
+$/frac{x-a}{b-a} $
+!et
+!eblock
+
+
+Notation: $ X  \sim U(a, b)$
+
+
+
+!split
+===== Uniform Distribution =====
+
+FIGURE: [../../../Teaching/Figures/uniform, width=600 frac=1]
+
+
+
+!split
+===== Triangular distribution =====
+* The triangular distribution can be used for modeling situations, where non extremal (central) values are more likely than the upper and lower bounds.
+
+* Take min, mode and max as inputs. Typically on the basis of subjective judgement:
+
+!bblock PDF: $f(x) =$
+
+!bt
+ $  \frac{2 (x-a)}{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
+ 
+ $  \frac{2 (b-x)}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
+!et
+!eblock
+
+!bblock CDF: $ F(x) = $
+ 
+!bt
+ $  \frac{(x-a) ^2 }{(b-a)(c-a)}; \ \text{if}\ a \leq x \leq c $
+ 
+ $  1 - \frac{(b-x)^2}{(b-a)(c-a)}; \ \text{if}\ c \leq x \leq b $
+!et
+!eblock
+
+
+
+!split
+===== Triangular Distribution =====
+
+Notation: $ X  \sim T(a, b, c)$
+
+FIGURE: [../../../Teaching/Figures/triangolar, width=600 frac=1]
+
+
+It can be symmetric or asymmetric
+
+
+
+!split
+===== Normal Distribution =====
+* The normal distribution ('bell curve' or Gaussian) for modeling unbiased uncertainties and random errors of the additive kind of symmetrical distributions of many material processes and phenomena.
+* A commonly cited rational for assuming normal distribution is the central limit theorem, which states that the sum of independent observations asymptotically approaches a normal distribution regardless of the shape of the underlying distributions(s=
+
+
+!bblock PDF:
+!bt
+$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} exp \left\{ -\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right) ^2 \right\}; \ - \infty \leq x \leq \infty $
+!et
+!eblock
+
+
+!bblock CDF: $ F(x) = $
+has no closed form solution but is often presented using the complementary error function solution
+!eblock
+
+
+
+
+!split
+===== Normal Distribution =====
+
+Notation: $ X  \sim G(\mu, \sigma)$
+
+!bblock
+It is a Symmetric distribution around the mean
+!eblock
+
+$\mu$ is the mean, $ \sigma $ is the standard deviation
+
+$\mu \pm \sigma : 68.3 \% probability $
+
+$\mu \pm 2 \sigma : 95.4 \% probability $
+
+$\mu \pm 3 \sigma : 99.7 \% probability $
+
+!split
+===== Normal Distribution =====
+FIGURE: [../../../Teaching/Figures/normal, width=600 frac=0.8]
+
+
+
+
+!split
+===== Data transformations =====
+* Often, it is useful to transform a sample distribution into the space of an equivalent normal distribution, where many statistical operations can be easily performed and visualized
+* The approach involves a rank-preserving one-to-one transformation.
+* Transforming the data so that their distribution matches a prescribed (target) distribution.
+* Sometimes we must transform the data...
+
+!split
+===== Normal Score Transformation =====
+
+o From data to cumulative distribution.
+
+o From cumulative distribution and map back.
+ 
+
+FIGURE: [../../../Teaching/Figures/nst, width=600 frac=0.8]
+
+The analysis can be performed on the gaussian distribution, and then moved back to the original distribution
+
+
+
+!split
+===== Log - Normal distribution =====
+For a log-normal distribution, we define the standard normal variate as
+
+$ \alpha = means \ of \ ln(x) $
+$ \beta = SD \ of \ ln(x) $
+
+Notation: $ ln(X)  \sim G(\mu, \sigma)$
+
+ 
+

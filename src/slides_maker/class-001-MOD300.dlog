@@ -1,0 +1,5 @@
+running preprocess -DFORMAT=pdflatex -DDEVICE=screen  class-001-MOD300.do.txt > tmp_preprocess__class-001-MOD300.do.txt
+Translating doconce text in tmp_preprocess__class-001-MOD300.do.txt to pdflatex
+*** error: could not open the file ../code/median.py used in
+@@@CODE ../code/median.py
+[Errno 2] No such file or directory: '../code/median.py'

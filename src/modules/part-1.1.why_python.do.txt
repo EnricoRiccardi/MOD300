@@ -2,6 +2,11 @@
 ======= Python =======
 
 !split
+===== Python presentation =====
+FIGURE: [../../../Teaching/fun/Introductory_python_programming, width=100]
+
+
+!split
 ===== Popularity =====
 FIGURE: [../../../Teaching/Figures/most, width=100]
 

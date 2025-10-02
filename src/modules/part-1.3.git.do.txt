@@ -2,7 +2,7 @@
 ======= Version control =======
 !split
 ===== Version control =====
-FIGURE: [../../../Teaching/Figures/version, frac=0.55]
+FIGURE: [../../../Teaching/fun/version, frac=0.55]
 
 !split
 ===== Git =====
@@ -70,5 +70,5 @@ Community engagement is generally a desirable target to help develop to directly
 
 !split
 ===== It can help your CV! maybe...  =====
-FIGURE: [../../../Teaching/Figures/gitfun, width=100 frac=0.8]
+FIGURE: [../../../Teaching/fun/gitfun, width=100 frac=0.8]
 
