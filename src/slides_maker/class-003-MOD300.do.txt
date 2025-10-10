@@ -1,7 +1,7 @@
 TITLE: MOD300 Anvendt Python programmering og modellering
 AUTHOR: Enrico Riccardi {copyright|CC BY} Email:enrico.riccardi@uis.no at Department of Mathematics and Physics, University of Stavanger (UiS).
-DATE: 06.10.2025
+DATE: 09.10.2025
 
 FIGURE: [../../../Teaching/Figures/logo, width=100 frac=0.2]
 
-# #include "../../../Teaching/minimodules/mc_imp_sampling.do.txt"
+# #include "../../../Teaching/minimodules/mc_examples.do.txt"
