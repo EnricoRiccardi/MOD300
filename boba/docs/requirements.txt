@@ -1,0 +1,7 @@
+bokeh
+sphinx_rtd_theme
+sphinx-prompt
+sphinx-copybutton
+sphinx>8
+nbsphinx
+myst_parser

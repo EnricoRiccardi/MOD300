@@ -1,0 +1,6 @@
+astropy
+astroquery>=0.4.9
+matplotlib>3.7.0
+numpy
+pandas
+requests
