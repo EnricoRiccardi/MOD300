@@ -4,5 +4,5 @@ DATE: 06.11.2025
 
 FIGURE: [../../../Teaching/Figures/logo, width=100 frac=0.2]
 
-# #include "../../../Teaching/modules/class_5.2_clustering.do.txt"
+# #include "../../../Teaching/modules/06-classification-and-clustering/clustering.do.txt"
 

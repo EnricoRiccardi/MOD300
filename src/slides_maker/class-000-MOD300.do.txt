@@ -4,4 +4,4 @@ DATE: today
 
 FIGURE: [../../../Teaching/Figures/logo, width=100 frac=0.2]
 
-# #include "../../../MOD300/src/modules/class_0_intro.do.txt"
+# #include "../modules/class_0_intro.do.txt"
