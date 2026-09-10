@@ -6,6 +6,6 @@ FIGURE: [../../../Teaching/Figures/logo, width=100 frac=0.2]
 
 # #include "../../../Teaching/modules/04-ml-foundations/stats_ml_ai.do.txt"
 # #include "../../../Teaching/modules/08-model-quality/ML_model_evaluation.do.txt"
-# #include "../../../Teaching/modules/10-ai-and-applications/reinforcement_learning.do.txt"
+# #include "../../../Teaching/modules/04-ml-foundations/reinforcement_learning.do.txt"
 # #include "../../../Teaching/minimodules/classification.do.txt"
 
